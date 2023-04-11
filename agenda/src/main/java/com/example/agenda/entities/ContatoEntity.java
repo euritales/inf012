@@ -1,28 +1,24 @@
 package com.example.agenda.entities;
 
-import java.util.List;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "contatos")
 public class ContatoEntity {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id ;
-	private String nome;
-	private String email;
-	@OneToMany
-	private List<NumeroEntity> numeros;
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "nome")
+    private String nome;
+    @Column(name = "email")
+    private String email;
+    @OneToMany
+    private List<NumeroEntity> ListNumero;
 }

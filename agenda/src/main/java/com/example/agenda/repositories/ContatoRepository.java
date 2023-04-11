@@ -1,9 +1,9 @@
 package com.example.agenda.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.agenda.entities.ContatoEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ContatoRepository  extends JpaRepository<ContatoEntity, Long>{
+public interface ContatoRepository  extends JpaRepository<ContatoEntity, Long> {
 
 }
