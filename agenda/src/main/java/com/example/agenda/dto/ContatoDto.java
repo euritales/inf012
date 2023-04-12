@@ -3,7 +3,6 @@ package com.example.agenda.dto;
 import com.example.agenda.entities.ContatoEntity;
 import com.example.agenda.entities.NumeroEntity;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,6 +27,7 @@ public class ContatoDto {
     }
 
     public static List<NumeroDto> converteNumeros(List<NumeroEntity> list){
-        return list.stream().map(NumeroDto::new).collect(Collectors.toList());
+//        return list.stream().map(NumeroDto::new).collect(Collectors.toList());
+        return list.stream().map(NumeroDto::create).collect(Collectors.toList());
     }
 }

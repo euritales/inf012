@@ -2,10 +2,8 @@ package com.example.agenda.dto;
 
 import com.example.agenda.entities.CategoriaEnum;
 import com.example.agenda.entities.NumeroEntity;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.modelmapper.ModelMapper;
 
 @Data
 public class NumeroDto {
@@ -14,9 +12,14 @@ public class NumeroDto {
     private String telefone;
     private CategoriaEnum categoriaEnum;
 
-    public NumeroDto(NumeroEntity numeroEntity){
-        this.id = numeroEntity.getId();
-        this.telefone = numeroEntity.getTelefone();
-        this.categoriaEnum = numeroEntity.getCategoriaEnum();
+//    public NumeroDto(NumeroEntity numeroEntity){
+//        this.id = numeroEntity.getId();
+//        this.telefone = numeroEntity.getTelefone();
+//        this.categoriaEnum = numeroEntity.getCategoriaEnum();
+//    }
+
+    public static NumeroDto create(NumeroEntity numeroEntity){
+        ModelMapper modelMapper = new ModelMapper();
+         return modelMapper.map(numeroEntity, NumeroDto.class);
     }
 }
