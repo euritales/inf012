@@ -19,6 +19,7 @@ public class ContatoEntity {
     private String nome;
     @Column(name = "email")
     private String email;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contato_id")
     private List<NumeroEntity> ListNumero;
 }
