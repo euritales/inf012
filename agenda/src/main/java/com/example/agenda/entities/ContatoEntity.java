@@ -23,12 +23,15 @@ public class ContatoEntity {
     private String email;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "contato_id")
-    private List<NumeroEntity> ListNumero;
+    private List<NumeroEntity> listNumero;
 
     public ContatoEntity(ContatoDto dto) {
+        super();
         this.id = dto.getId();
         this.nome = dto.getNome();
         this.email = dto.getEmail();
-        ListNumero = dto.getListNumero().stream().map(NumeroEntity::new).collect(Collectors.toList());
+        this.listNumero = dto.getListNumero().stream()
+                .map(NumeroEntity::new)
+                .collect(Collectors.toList());
     }
 }

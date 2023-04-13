@@ -8,9 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/api/contatos")
 public class ContatoController {
@@ -36,7 +33,27 @@ public class ContatoController {
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity salvarContato(@RequestBody ContatoDto contatoDto){
-        return service.salvarContato(contatoDto);
-//        return ResponseEntity.created(null).build();
+         service.salvarContato(contatoDto);
+         return ResponseEntity.created(null).build();
+    }
+
+//    @PutMapping("/edit/{id}")
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    public ResponseEntity editarContato(@PathVariable Long id, @RequestBody ContatoDto contatoDto){
+//        return ResponseEntity.ok(service.updateContato(contatoDto));
+//    }
+
+
+    @PostMapping("/add")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity salvarContato(@RequestBody ContatoEntity contatoEntity){
+        ContatoDto contatoDto = service.salvarContato(contatoEntity);
+        return ResponseEntity.created(null).build();
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<ContatoDto> apagarContato(@PathVariable Long id){
+        return service.deleteContato(id);
     }
 }
+
+

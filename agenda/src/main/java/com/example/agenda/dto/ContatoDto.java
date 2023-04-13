@@ -15,12 +15,20 @@ public class ContatoDto {
     private String email;
     private List<NumeroDto> ListNumero;
 
+
+
     public ContatoDto(ContatoEntity contatoEntity) {
         this.id = contatoEntity.getId();
         this.nome = contatoEntity.getNome();
         this.email = contatoEntity.getEmail();
         this.ListNumero = converteNumeros(contatoEntity.getListNumero());
     }
+//    public ContatoDto(ContatoEntity contatoEntity) {
+//        this.id = contatoEntity.getId();
+//        this.nome = contatoEntity.getNome();
+//        this.email = contatoEntity.getEmail();
+//        this.ListNumero = converteNumeros(contatoEntity.getListNumero());
+//    }
 
     public static List<ContatoDto> converteContatos(List<ContatoEntity> list){
         return list.stream().map(ContatoDto::new).collect(Collectors.toList());
