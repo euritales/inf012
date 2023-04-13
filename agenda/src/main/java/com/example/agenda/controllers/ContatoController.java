@@ -4,6 +4,7 @@ import com.example.agenda.dto.ContatoDto;
 import com.example.agenda.entities.ContatoEntity;
 import com.example.agenda.services.ContatoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,9 +33,10 @@ public class ContatoController {
         return ResponseEntity.ok(service.getByNome(nome));
     }
 
-    @PostMapping()
-    public ResponseEntity salvarContato(@RequestBody ContatoEntity contatoEntity){
-        
-        return ResponseEntity.created(null).build();
+    @PostMapping("/add")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity salvarContato(@RequestBody ContatoDto contatoDto){
+        return service.salvarContato(contatoDto);
+//        return ResponseEntity.created(null).build();
     }
 }

@@ -1,11 +1,13 @@
 package com.example.agenda.entities;
 
+import com.example.agenda.dto.ContatoDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -22,4 +24,11 @@ public class ContatoEntity {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "contato_id")
     private List<NumeroEntity> ListNumero;
+
+    public ContatoEntity(ContatoDto dto) {
+        this.id = dto.getId();
+        this.nome = dto.getNome();
+        this.email = dto.getEmail();
+        ListNumero = dto.getListNumero().stream().map(NumeroEntity::new).collect(Collectors.toList());
+    }
 }
