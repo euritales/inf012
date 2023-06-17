@@ -10,13 +10,13 @@ import org.modelmapper.ModelMapper;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PacienteDTO {
-    private Long id;
+//    private Long id;
     private String nome;
     private String email;
-    private String telefone;
+//    private String telefone;
     private String cpf;
-    private EnderecoDTO endereco;
-    private boolean status;
+//    private EnderecoDTO endereco;
+//    private boolean status;
 
 
     public static PacienteDTO fromEntity(PacienteEntity pacienteEntity) {

@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ConsultaDTO {
-    private Long id;
     private PacienteDTO paciente;
     private MedicoDTO medico;
     private LocalDateTime dataHora;
@@ -26,7 +25,4 @@ public class ConsultaDTO {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(consultaDTO, ConsultaEntity.class);
     }
-//    public ConsultaEntity toEntity() {
-//        return modelMapper.map(this, ConsultaEntity.class);
-//    }
 }

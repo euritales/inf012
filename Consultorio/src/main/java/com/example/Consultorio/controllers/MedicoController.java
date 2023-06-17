@@ -27,15 +27,15 @@ public class MedicoController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Page<MedicoDTO>> listarMedicosPorPaginacao(@RequestParam(defaultValue = "0") int pagina) {
-        Page<MedicoDTO> medicoPage = medicoService.listarMedicosPorPaginacao(pagina);
-        return ResponseEntity.ok(medicoPage);
+        Page<MedicoDTO> medicoDTO = medicoService.listarMedicosPorPaginacao(pagina);
+        return ResponseEntity.ok(medicoDTO);
     }
 
     @GetMapping("/ativos")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Page<MedicoDTO>> listarMedicosAtivos(@RequestParam(defaultValue = "0") int pagina) {
-        Page<MedicoDTO> medicoPage = medicoService.listarMedicosAtivos(pagina);
-        return ResponseEntity.ok(medicoPage);
+        Page<MedicoDTO> medicoDTO = medicoService.listarMedicosAtivos(pagina);
+        return ResponseEntity.ok(medicoDTO);
     }
 
     @PostMapping
