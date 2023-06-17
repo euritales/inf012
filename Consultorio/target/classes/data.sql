@@ -67,13 +67,14 @@ INSERT INTO paciente (nome, email, telefone, cpf, status, logradouro, numero, co
 VALUES ('Maria', 'maria@example.com', '987654321', '90123456789', true, 'Avenida X', '789', 'Casa 6', 'Centro', 'São Paulo', 'SP', '21098-765');
 
 
---Tabela de Consultas
+----Tabela de Consultas
+--
 
-INSERT INTO consulta (paciente_id, medico_id, data_hora)
-VALUES (1, 1, '2023-06-10 13:00:00');
+INSERT INTO consulta (paciente_id, medico_id, data_hora, status, cancelamento)
+VALUES (1, 1, '2023-06-21 10:00:00', true, '');
 
-INSERT INTO consulta (paciente_id, medico_id, data_hora)
-VALUES (2, 2, '2023-06-11 10:00:00');
+INSERT INTO consulta (paciente_id, medico_id, data_hora, status, cancelamento)
+VALUES (2, 2, '2023-06-21T10:00:00', true, '');
 
-INSERT INTO consulta (paciente_id, medico_id, data_hora)
-VALUES (3, 1, '2023-06-12 14:00:00');
+INSERT INTO consulta (paciente_id, medico_id, data_hora, status, cancelamento)
+VALUES (3, 1, '2023-06-21T13:00:00', true, '');

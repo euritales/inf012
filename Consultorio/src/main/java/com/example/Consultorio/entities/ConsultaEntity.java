@@ -29,8 +29,7 @@ public class ConsultaEntity {
 
     @NotNull
     private LocalDateTime dataHora;
-    @NotNull
-    private boolean status;
+    private boolean status = true;
     private String cancelamento;
 }
 
